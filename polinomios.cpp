@@ -228,23 +228,14 @@ void separador(const string &titulo)
     cout << "  " << titulo << endl;
     cout << string(55, '=') << endl;
 }
-int main()
-{
+int main(){
     Termino *nodo = nullptr;
     Termino *nodo2 = nullptr;
     Termino *suma = nullptr;
-    float coeficiente = 0;
+    float coeficiente = 0.0f;
     int exponente = 0;
-    /*
-    nodo = insertarTermino(nodo, 4.0f, 3);
-    nodo = insertarTermino(nodo, -2.0f, 1);
-    nodo = insertarTermino(nodo, 5.0f, 0);
-    nodo = insertarTermino(nodo, -1.0f, 2);
-    cout << "Polinomio (x)";
-    imprimirPolinomio(nodo);
-    */
-    cout << "Grado: " << gradoPolinomio(nodo) << endl;
-    cout << "Nodos: " << contarTerminos(nodo) << endl;
+
+    cout << "Ingrese 4 terminos para el polinomio 1" << endl;
     for (int i = 0; i < 4; i++)
     {
         cout << "Ingresa el coeficiente: ";
@@ -254,9 +245,10 @@ int main()
         nodo = insertarTermino(nodo, coeficiente, exponente);
     }
 
-    cout << "Polinomio 1: " << endl;
+    cout << "Polinomio 1:" << endl;
     imprimirPolinomio(nodo);
 
+    cout << "Ingrese 4 terminos para el polinomio 2" << endl;
     for (int i = 0; i < 4; i++)
     {
         cout << "Ingresa el coeficiente: ";
@@ -266,17 +258,20 @@ int main()
         nodo2 = insertarTermino(nodo2, coeficiente, exponente);
     }
 
-    cout << "Polinomio 2: " << endl;
+    cout << "Polinomio 2:" << endl;
     imprimirPolinomio(nodo2);
 
     suma = sumarPolinomios(nodo, nodo2);
-    cout << "La suma de los polinomios es: " << endl;
+
+    cout << "Resultado de la suma:" << endl;
     imprimirPolinomio(suma);
 
-    cout << "Liberar memoria" << endl;
-    int liberar = 0;
-    liberar = destruirPolinomio(nodo);
-    liberar = destruirPolinomio(nodo2);
-    liberar = destruirPolinomio(suma);
-    cout << "Se libero el nodo 1 y nodo 2" << endl;
+    cout << "Destruyendo polinomios..." << endl;
+    destruirPolinomio(nodo);
+    destruirPolinomio(nodo2);
+    destruirPolinomio(suma);
+
+    cout << "Los polinomios fueron destruidos." << endl;
+
+    return 0;
 }
